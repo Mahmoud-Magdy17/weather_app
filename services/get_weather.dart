@@ -4,10 +4,8 @@
 
 class Weather{
 
-  double getCelsius(double f){
-    return f-17.6666667; 
-  }
+  
   getWeatherForCountry(){
-    
+
   }
 }
