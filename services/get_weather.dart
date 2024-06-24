@@ -14,8 +14,13 @@ class WeatherService {
     try {
       Response response = await dio.get('$baseUrl/$cityName?key=$apiKey');
       return Weather.jSon(response.data);
-    } catch (e) {
-      return null;
+    } on DioException catch (e) {
+      String errorMsg =
+          e.response?.data?? "error was fould, Plese try later!";
+          throw errorMsg;
+    } 
+    catch (e){
+      throw  "error was fould, Plese try later!";
     }
   }
 }
