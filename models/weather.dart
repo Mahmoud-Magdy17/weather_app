@@ -29,9 +29,9 @@ class Weather {
       weatherCondition: jSon['days'][0]['conditions'],
       cityName: jSon['address'],
       date: timeNow,
-      temp: _getCelsius(jSon['days'][0]['temp']),
-      maxTemp: _getCelsius(jSon['days'][0]['tempmax']),
-      minTemp: _getCelsius(jSon['days'][0]['tempmin']),
+      temp: _getCelsius(jSon['days'][0]['temp']).roundToDouble(),
+      maxTemp: _getCelsius(jSon['days'][0]['tempmax']).roundToDouble(),
+      minTemp: _getCelsius(jSon['days'][0]['tempmin']).roundToDouble(),
     );
   }
 }
