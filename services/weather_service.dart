@@ -3,6 +3,8 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:wheather_app/models/weather.dart';
 
 class WeatherService {
@@ -12,11 +14,9 @@ class WeatherService {
   final String apiKey = "DXJYZ3UB49AZA87BZBFZB94D3";
   WeatherService({required this.dio});
 
-  
   Future<Weather> getWeatherForCountry(String cityName) async {
     try {
-      Response response = await dio.get(
-          '$baseUrl/$cityName?key=$apiKey');
+      Response response = await dio.get('$baseUrl/$cityName?key=$apiKey');
       return Weather.jSon(response.data);
     } on DioException catch (e) {
       log(e.message!);

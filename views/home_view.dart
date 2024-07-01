@@ -7,21 +7,21 @@ import 'package:wheather_app/widgets/no_weather_body.dart';
 import 'package:wheather_app/widgets/weather_info_body.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actionsIconTheme: const IconThemeData(size: 24),
+        iconTheme: AppBarTheme.of(context).copyWith().actionsIconTheme,
         actions: [
           IconButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return const SearchView();
+                return SearchView();
               }));
             },
-            icon: const Icon(Icons.search),
+            icon: Icon(Icons.search),
           )
         ],
         title: const Text('Weather App'),
@@ -31,7 +31,7 @@ class HomeView extends StatelessWidget {
           if (state is InitialState) {
             return const NoWeatherBody();
           } else if (state is WeatherLoadedStete) {
-            return const WeatherInfoBody();
+            return  WeatherInfoBody(weatherModal:  state.weather);
           } else {
             return const Text("Error Message");
           }

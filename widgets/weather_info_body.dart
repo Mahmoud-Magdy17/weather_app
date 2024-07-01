@@ -4,11 +4,14 @@ import 'package:wheather_app/cupits/get_weather_cupit/get_weather_cubit.dart';
 import 'package:wheather_app/models/weather.dart';
 
 class WeatherInfoBody extends StatelessWidget {
-  const WeatherInfoBody({super.key});
-
+  WeatherInfoBody({
+    super.key,
+    required this.weatherModal,
+  });
+  final Weather weatherModal;
   @override
   Widget build(BuildContext context) {
-    Weather weather = BlocProvider.of<GetWeatherCubit>(context).weather;
+    Weather weather = BlocProvider.of<GetWeatherCubit>(context).weather!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
@@ -23,7 +26,7 @@ class WeatherInfoBody extends StatelessWidget {
           ),
           Text(
             'updated at ${weather.date}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24,
             ),
           ),
@@ -36,7 +39,7 @@ class WeatherInfoBody extends StatelessWidget {
               Image.asset('assets/images/cloudy.png'),
               Text(
                 weather.temp.toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 32,
                 ),
@@ -51,7 +54,7 @@ class WeatherInfoBody extends StatelessWidget {
                   ),
                   Text(
                     'Mintemp: ${weather.minTemp}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
@@ -64,7 +67,7 @@ class WeatherInfoBody extends StatelessWidget {
           ),
           Text(
             weather.weatherCondition,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 32,
             ),
