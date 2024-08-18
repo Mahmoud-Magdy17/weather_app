@@ -36,7 +36,7 @@ class WeatherApp extends StatelessWidget {
                           .copyWith(color: colorScheme.onPrimary)),
                 ),
                 debugShowCheckedModeBanner: false,
-                home: HomeView(),
+                home: const HomeView(),
               );
             },
           );

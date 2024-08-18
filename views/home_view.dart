@@ -7,7 +7,7 @@ import 'package:wheather_app/widgets/no_weather_body.dart';
 import 'package:wheather_app/widgets/weather_info_body.dart';
 
 class HomeView extends StatelessWidget {
-  HomeView({super.key});
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,10 @@ class HomeView extends StatelessWidget {
           IconButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return SearchView();
+                return const SearchView();
               }));
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           )
         ],
         title: const Text('Weather App'),

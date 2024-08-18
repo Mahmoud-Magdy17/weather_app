@@ -4,7 +4,7 @@ import 'package:wheather_app/cupits/get_weather_cupit/get_weather_cubit.dart';
 import 'package:wheather_app/models/weather.dart';
 
 class WeatherInfoBody extends StatelessWidget {
-  WeatherInfoBody({
+  const WeatherInfoBody({
     super.key,
     required this.weatherModal,
   });
